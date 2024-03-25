@@ -14,4 +14,4 @@ Quando você rodar o programa, deve aparece o seguinte no terminal:
 
 Divirta-se e sinta-se a vontade para utilizar o código, modificá-lo ou estudá-lo. (Inclusive, têm alguns comentários que deixei para me auxiliarem durante a organização do jogo).
 
-Qualquer coisa, contate-me pelo Linkedin ou Instagran - ambos disponíveis em meu perfil.
+Dúvidas ou sugestões? Contate-me pelo Linkedin ou Instagram - ambos disponíveis em meu perfil.

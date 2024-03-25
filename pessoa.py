@@ -61,16 +61,14 @@ class Pessoa:
         self.mostrar_dinheiro()
 
     def batalhar(self, pessoa):
-        print()
         print(f'\033[33m{self} iniciou uma batalha com \033[4m{pessoa}\033[m\033[m.')
-        sleep(2)
-        print()
+        sleep(1)
         pessoa.mostrar_pokemons()
         print()
-        sleep(2)
+        sleep(1)
         pokemon_inimigo = pessoa.escolher_pokemon()
         print()
-        sleep(2)
+        sleep(1)
         pokemon = self.escolher_pokemon()
 
         if pokemon and pokemon_inimigo:

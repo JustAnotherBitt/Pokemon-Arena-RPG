@@ -4,9 +4,9 @@ from time import sleep
 
 
 def escolher_pokemon_inicial(player):
-    print(f'Olá, \033[34m{player}\033[m! Agora você escolherá o Pokémon que irá lhe acompanhar nesta jornada!')
+    print(f'\033[34m{player}\033[m, agora você escolherá o Pokémon que irá lhe acompanhar nesta jornada!')
     print()
-    sleep(4)
+    sleep(2)
 
     pikachu = PokemonEletrico('Pikachu', level=1)
     charmander = PokemonFogo('Charmander', level=1)

@@ -1,4 +1,5 @@
-import random
+from time import sleep
+
 # importar todas as classes:
 from pokemon import *
 
@@ -17,7 +18,7 @@ POKEMONS = [
 
 class Pessoa:
 
-    def __init__(self, nome=None, pokemons=[], dinheiro=100): # pokemons é uma lista
+    def __init__(self, nome=None, pokemons=[], dinheiro=100):  # pokemons é uma lista
         if nome:
             self.nome = nome
         else:
@@ -25,67 +26,77 @@ class Pessoa:
 
         self.pokemons = pokemons
 
-        self.dinheiro = dinheiro # dinheiro inicial
+        self.dinheiro = dinheiro  # dinheiro inicial
 
-    def __str__(self): # característica de todas as pessoas
-        return self.nome # quando printar uma pessoa, retorne o nome dela
+    def __str__(self):  # característica de todas as pessoas
+        return self.nome  # quando printar uma pessoa, retorne o nome dela
 
     def mostrar_pokemons(self):
         if self.pokemons:
-            print(f'Pokemons de {self}:')
+            print()
+            sleep(1)
+            print(f'\033[33mPokemons de {self}:\033[m')
             for index, pokemon in enumerate(self.pokemons):
                 print(f'{index} - {pokemon}')
+            sleep(3)
         else:
             print(f'{self} não tem nenhum pokemon')
+            sleep(2)
 
     def escolher_pokemon(self):
         if self.pokemons:
             pokemon_escolhido = random.choice(self.pokemons)
-            print(f'{self} escolheu {pokemon_escolhido}')
+            print(f'\033[34m{self} escolheu {pokemon_escolhido}.\033[m')
             return pokemon_escolhido
+
         else:
-            print('ERRO: Esse jogador não poossui nenhum pokemon')
+            print('\033[3;31mERRO: Esse jogador não possui nenhum pokemon\033[m')
 
     def mostrar_dinheiro(self):
-        print(f'Você possui ${self.dinheiro} em sua conta')
+        print(f'Você possui ${self.dinheiro} em sua conta.')
 
     def ganhar_dinheiro(self, quantidade):
         self.dinheiro += quantidade
-        print(f'Você ganhou ${quantidade}')
+        print(f'\033[32mVocê ganhou ${quantidade}\033[m.')
         self.mostrar_dinheiro()
 
     def batalhar(self, pessoa):
-        print(f'{self} iniciou uma batalha com {pessoa}')
-
+        print()
+        print(f'\033[33m{self} iniciou uma batalha com \033[4m{pessoa}\033[m\033[m.')
+        sleep(2)
+        print()
         pessoa.mostrar_pokemons()
+        print()
+        sleep(2)
         pokemon_inimigo = pessoa.escolher_pokemon()
-
+        print()
+        sleep(2)
         pokemon = self.escolher_pokemon()
 
         if pokemon and pokemon_inimigo:
             while True:
                 vitoria = pokemon.atacar(pokemon_inimigo)
                 if vitoria:
-                    print(f'{self} ganhou a batalha')
+                    print(f'\033[1;32m{self} ganhou a batalha!\033[m')
                     self.ganhar_dinheiro(pokemon_inimigo.level * 100)
                     break
 
-                if pokemon_inimigo.atacar(pokemon): # vitória inimiga
-                    print(f'{pessoa} ganhou a batalha')
+                if pokemon_inimigo.atacar(pokemon):  # vitória inimiga
+                    print(f'\033[1;31m{pessoa} ganhou a batalha.\033[m')
                     break
 
         else:
-            print('Essa batalha não pode ocorrer')
+            print('Essa batalha não pode ocorrer...')
 
 
-
-
-class Player(Pessoa): # player = subtipo da pessoa
+class Player(Pessoa):  # player = subtipo da pessoa
     tipo = 'player'
 
-    def capturar(self,pokemon):
+    def capturar(self, pokemon):
         self.pokemons.append(pokemon)
-        print(f'{self} capturou {pokemon}!')
+        print()
+        print(f'\033[32m{self} capturou {pokemon}!\033[m')
+        print()
 
     def escolher_pokemon(self):
         self.mostrar_pokemons()
@@ -95,42 +106,51 @@ class Player(Pessoa): # player = subtipo da pessoa
                 try:
                     escolha = int(input('Escolha seu pokemon: '))
                     pokemon_escolhido = self.pokemons[escolha]
-                    print(f'{pokemon_escolhido} eu escolho você!')
+                    print()
+                    print(f'\033[1;32m{pokemon_escolhido} eu escolho você!\033[m')
                     return pokemon_escolhido
                 except:
-                    print('Escolha inválida')
+                    print('\033[3;31mEscolha inválida\033[m')
         else:
-            print('ERRO: Esse jogador não poossui nenhum pokemon')
+            print('\033[3;31mERRO: Esse jogador não poossui nenhum pokemon\033[m')
 
     def explorar(self):
-        if random.random() <= 0.3: # 30% de chance de isso acontecer
+        if random.random() <= 0.3:  # 30% de chance de isso acontecer
             pokemon = random.choice(POKEMONS)
-            print(f'Um pokemon selvagem apareceu: {pokemon}')
+            print()
+            sleep(2)
+            print(f'\033[32mUm Pokémon selvagem apareceu: {pokemon}.\033[m')
+            print()
+            sleep(2)
 
             escolha = str(input('Deseja capturar o pokemon? [S/N] ')).upper().strip()
             if escolha == 'S':
                 if random.random() >= 0.5:
                     self.capturar(pokemon)
                 else:
-                    print(f'{pokemon} fugiu')
+                    sleep(1)
+                    print(f'\033[31mOh não! {pokemon} fugiu. Boa sorte na próxima...\033[m')
             else:
-                print('Ok, boa viagem')
+                sleep(1)
+                print('Ok, boa viagem!')
         else:
-            print('Essa exploração não deu em nada...')
+            sleep(2)
+            print()
+            print('\033[33mEssa exploração não deu em nada...\033[m')
+            print()
+            sleep(2)
 
 
 class Inimigo(Pessoa):
     tipo = "inimigo"
 
     def __init__(self, nome=None, pokemons=None):
-        if not pokemons: #se não tiver pokemons
+        if not pokemons:  # se não tiver pokemons
             pokemons_aleatorios = []
-            for i in range(random.randint(1,6)): #escolha uma qnt aleatória de pokoemons aleatórios
+            for i in range(random.randint(1, 6)):  # escolha uma qnt aleatória de pokemons aleatórios
                 pokemons_aleatorios.append(random.choice(POKEMONS))
 
-            super().__init__(nome=nome, pokemons=pokemons_aleatorios) #chama o init classe pai (Pessoa)
+            super().__init__(nome=nome, pokemons=pokemons_aleatorios)  # chama o init classe pai (Pessoa)
 
         else:
             super().__init__(nome=nome, pokemons=pokemons)
-
-

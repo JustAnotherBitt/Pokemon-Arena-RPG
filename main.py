@@ -1,97 +1,120 @@
 import pickle
-from pokemon import *
 from pessoa import *
 from time import sleep
 
+
 def escolher_pokemon_inicial(player):
-    print(f'Olá, {player}... Você poderá escolher agora o Pokemon que irá lhe acompanhar nessa jornada!')
+    print(f'Olá, \033[34m{player}\033[m! Agora você escolherá o Pokémon que irá lhe acompanhar nesta jornada!')
+    print()
+    sleep(4)
 
     pikachu = PokemonEletrico('Pikachu', level=1)
     charmander = PokemonFogo('Charmander', level=1)
     squirtle = PokemonAgua('Squirtle', level=1)
 
     print('Você possui 3 escolhas: ')
+    print()
     print('1 -', pikachu)
-    print('2 -',charmander)
+    print('2 -', charmander)
     print('3 -', squirtle)
 
     while True:
-        escolha = input('Escolha o seu Pokemon: ')
+        print()
+        escolha = input('\033[34mEscolha o seu Pokemon:\033[m ')
 
         if escolha == '1':
             player.capturar(pikachu)
             break
-        elif escolha =='2':
+        elif escolha == '2':
             player.capturar(charmander)
             break
         elif escolha == '3':
             player.capturar(squirtle)
             break
         else:
-            print('Escolha inválida')
+            print('\033[3;31mEscolha inválida\033[m')
 
 
 def salvar_jogo(player):
     try:
-        with open('database.db', 'wb') as arquivo: # wb = escrever / binário
+        with open('database.db', 'wb') as arquivo:  # wb = escrever / binário
             pickle.dump(player, arquivo)
-            print("Jogo salvo com sucesso!")
+            sleep(1)
+            print("\033[3;37mJogo salvo com sucesso!\033[m")
     except Exception as error:
-        print('Erro ao salvar o jogo')
+        print('\033[3;31mErro ao salvar o jogo.\033[m')
         print(error)
+
 
 def carregar_jogo():
     try:
-        with open('database.db', 'rb') as arquivo: # wb = leitura binária
-            player = pickle.load(arquivo) # transforma o conteúdo do arquivo no objeto player
-            print('Loading feito com sucesso')
+        with open('database.db', 'rb') as arquivo:  # wb = leitura binária
+            player = pickle.load(arquivo)  # transforma o conteúdo do arquivo no objeto player
+            print('\033[3;32mLoading feito com sucesso!\033[m')
             return player
     except Exception as error:
-        print('Save não encontrado')
+        print('\033[37mSave não encontrado.\033[m')
 
 
 # ARENA:
 
-if __name__ == "__main__": # executa o codigo apenas se rodar esse arquivo (main.py)
-    print('-' * 40)
-    print('Bem-vindo ao minigame Pokemon RPG de terminal!')
-    print('-' * 40)
+if __name__ == "__main__":  # executa o codigo apenas se rodar esse arquivo (main.py)
+    print('-' * 46)
+    print('\033[1;34mBem-vindo ao minigame Pokémon RPG de terminal!\033[m')
+    print('-' * 46)
 
     player = carregar_jogo()
 
     if not player:
         nome = str(input("Qual é o seu nome? -> "))
-        player=Player(nome)
-        print(f'Olá, {nome}, esse é um mundo habitado por pokemons. A partir de agora sua missaõ é se tornar um mestre dos pokemons')
-        print('Capture o máximo de pokemos que conseguir e lute contra seus inimigos')
+        player = Player(nome)
+        sleep(1)
+        print()
+        print('\033[3;32mCarregando novo mundo...\033[m')
+        sleep(2)
+        print()
+        print(f'''Olá, \033[34m{nome}\033[m! Este é um mundo habitado por Pokémons. 
+A partir de agora, sua missão é se tornar um mestre dos Pokémons.
+Capture o máximo de Pokémos que conseguir e lute contra seus inimigos!''')
+        print()
+        sleep(5)
         player.mostrar_dinheiro()
 
         if player.pokemons:
-            print('Já vi que você tem alguns pokemons')
+            print()
+            print('Já vi que você tem alguns pokemons...')
+            sleep(2)
             player.mostrar_pokemons()
         else:
-            print('Você não tem nenhum pokemon, portanto precisa escolher um...')
+            print()
+            print('Você não tem nenhum Pokémon, portanto, precisa escolher um...')
+            sleep(2)
             escolher_pokemon_inicial(player)
 
-        print('Pronto! Agora que você já possui um pokemon, enfrente seu arqui-inimigo desde seu nascimento: Gary')
+        sleep(1)
+        print('Pronto! Agora que você já possui um Pokémon, enfrente seu arqui-inimigo desde seu nascimento: \033[31mGary.\033[m')
         gary = Inimigo(nome='Gary', pokemons=[PokemonAgua('Squirtle', level=1)])
+        print()
+        sleep(3)
         player.batalhar(gary)
         salvar_jogo(player)
 
     while True:
-        print('-'*15)
+        print()
         print('O que desejas fazer?')
-        print('-' * 15)
-        print('''0 - Sair do jogo
+        print('-' * 22)
+        sleep(1)
+        print('''\033[34m0 - Sair do jogo
 1 - Explorar o mundo
 2 - Lutar com um inimigo
-3 - Ver pokeagenda
-        ''')
+3 - Ver pokeagenda\033[m''')
         print('-' * 15)
-        escolha = int(input(('Sua escolha: ')))
+        sleep(1)
+        escolha = int(input('Sua escolha: '))
 
         if escolha == 0:
-            print('Saindo do jogo...')
+            print()
+            print('\033[3;31mSaindo do jogo...\033[m')
             break
         elif escolha == 1:
             player.explorar()
@@ -103,8 +126,4 @@ if __name__ == "__main__": # executa o codigo apenas se rodar esse arquivo (main
         elif escolha == 3:
             player.mostrar_pokemons()
         else:
-            print('Escolha inválida')
-
-
-
-
+            print('\033[3;31mEscolha inválida.\033[m')

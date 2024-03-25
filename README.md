@@ -13,3 +13,5 @@ Quando você rodar o programa, deve aparece o seguinte no terminal:
 ![image](https://github.com/LeRodrigues2005/Minigame-Pokemon-RPG/assets/97632543/37b0fcbb-8b66-406b-bc06-10aed0909290)
 
 Divirta-se e sinta-se a vontade para utilizar o código, modificá-lo ou estudá-lo. (Inclusive, têm alguns comentários que deixei para me auxiliarem durante a organização do jogo).
+
+Qualquer coisa, contate-me pelo Linkedin ou Instagran - ambos disponíveis em meu perfil.

@@ -12,6 +12,10 @@ Quando você rodar o programa, deve aparece o seguinte no terminal:
 
 ![image](https://github.com/LeRodrigues2005/Minigame-Pokemon-RPG/assets/97632543/37b0fcbb-8b66-406b-bc06-10aed0909290)
 
+Quando você sair do jogo, será criado um arquivo com os saves:
+
+![image](https://github.com/LeRodrigues2005/Minigame-Pokemon-RPG/assets/97632543/a7e57f1c-8955-4974-ba4f-841082d1cdde)
+
 Divirta-se e sinta-se a vontade para utilizar o código, modificá-lo ou estudá-lo. (Inclusive, têm alguns comentários que deixei para me auxiliarem durante a organização do jogo).
 
 Dúvidas ou sugestões? Contate-me pelo Linkedin ou Instagram - ambos disponíveis em meu perfil.

@@ -45,7 +45,7 @@ Para iniciar o jogo, clique em `run` (ou `shift + f10`) para rodar o arquivo `ma
 Na primeira execução do jogo, você será solicitado a fornecer um nome para seu jogador:
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/4eed3af3-1fa5-4bd2-96c5-a40172b8c8c6" alt="" width="600">
+<img src="https://github.com/user-attachments/assets/4eed3af3-1fa5-4bd2-96c5-a40172b8c8c6" alt="" width="400">
 </p>
 
 ### 2. **Exploração do Mundo**
@@ -53,7 +53,7 @@ Na primeira execução do jogo, você será solicitado a fornecer um nome para s
 Ao explorar o mundo, você pode encontrar novas áreas e Pokémon:
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/99394557-5c39-4c28-8d8c-a488e5a9f13c" alt="" width="600">
+<img src="https://github.com/user-attachments/assets/99394557-5c39-4c28-8d8c-a488e5a9f13c" alt="" width="400">
 </p>
 
 
@@ -62,7 +62,7 @@ Ao explorar o mundo, você pode encontrar novas áreas e Pokémon:
 Enfrente inimigos e participe de batalhas:
 
 <p align="center">
-![image](https://github.com/user-attachments/assets/a0f2172a-5b63-4019-b4da-d55210f65535)
+<img src="https://github.com/user-attachments/assets/a0f2172a-5b63-4019-b4da-d55210f65535" alt="" width="400">
 </p>
 
 ### 4. **Pokeagenda**

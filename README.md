@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Bem-vindo ao **Pokémon Terminal Game**! Este é um jogo de terminal escrito inteiramente em Python onde você pode explorar o mundo dos Pokémons, lutar com inimigos, ganhar recompensas em dinheiro, encontrar novos Pokémon, e muito mais. O progresso do jogo é salvo em um banco de dados, garantindo que você sempre retome a partir do ponto em que parou.
+Bem-vindo ao **Pokémon Terminal Game**! Este é um jogo de terminal escrito inteiramente em Python onde você pode explorar o mundo dos Pokémons, lutar com inimigos, ganhar recompensas em dinheiro, encontrar novos Pokémons, e muito mais. O progresso do jogo é salvo em um banco de dados, garantindo que você sempre retome a partir do ponto em que parou.
 
 ## Funcionalidades
 

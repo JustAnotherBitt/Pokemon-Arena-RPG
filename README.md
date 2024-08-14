@@ -69,46 +69,12 @@ Enfrente inimigos e participe de batalhas:
 
 Visualize seus Pokémon atuais com a pokeagenda:
 
-```
-Pokéagenda:
-1. Pikachu - Nível 5
-2. Charmander - Nível 10
-3. Bulbasaur - Nível 8
-```
+<p align="center">
+<img src="https://github.com/user-attachments/assets/68bad675-dc1d-424a-acc5-79b98be4d0a9" alt="" width="400">
+</p>
 
 ### 5. **Salvamento do Progresso**
 
 O progresso é salvo automaticamente, e você continuará de onde parou na próxima execução do jogo.
 
-## Contribuição
 
-Sinta-se à vontade para contribuir com melhorias e correções. Para isso, siga as etapas abaixo:
-
-1. Faça um fork do repositório.
-2. Crie uma branch para a sua feature ou correção:
-   
-   ```bash
-   git checkout -b minha-nova-feature
-   ```
-
-3. Faça as alterações necessárias e commit:
-   
-   ```bash
-   git commit -am 'Adiciona nova funcionalidade'
-   ```
-
-4. Envie para o repositório remoto:
-   
-   ```bash
-   git push origin minha-nova-feature
-   ```
-
-5. Crie um Pull Request.
-
-## Licença
-
-Este projeto é licenciado sob a [MIT License](LICENSE).
-
----
-
-Se precisar adicionar ou modificar qualquer detalhe ou exemplo específico com base nos prints que você mencionou, sinta-se à vontade para ajustar o README conforme necessário!

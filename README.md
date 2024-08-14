@@ -13,6 +13,11 @@ Bem-vindo ao **Pokémon Terminal Game**! Este é um jogo de terminal escrito int
 - **Pokeagenda**: Visualize seus Pokémon atuais e gerencie sua equipe.
 - **Salvamento**: O progresso é salvo automaticamente em um arquivo de banco de dados (`database.db`).
 
+## Requisitos
+- **Python 3.x**: Certifique-se de ter o Python 3.x instalado em seu ambiente.
+- **IDE**: Para este projeto, eu usei o <a href="https://www.jetbrains.com/pycharm/download/?section=windows">PyCharm</a> (Edição Community).
+
+
 ### Tela Inicial
 
 Na primeira vez que você jogar, o jogo exibirá a mensagem:

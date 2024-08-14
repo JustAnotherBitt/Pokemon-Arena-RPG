@@ -52,20 +52,18 @@ Na primeira execução do jogo, você será solicitado a fornecer um nome para s
 
 Ao explorar o mundo, você pode encontrar novas áreas e Pokémon:
 
-```
-Você está na Floresta de Pallet. 
-Encontrou um Pikachu selvagem!
-```
+<p align="center">
+<img src="https://github.com/user-attachments/assets/99394557-5c39-4c28-8d8c-a488e5a9f13c" alt="" width="600">
+</p>
+
 
 ### 3. **Batalhas**
 
 Enfrente inimigos e participe de batalhas:
 
-```
-Você encontrou um treinador!
-Início da batalha: Charmander vs. Bulbasaur
-Charmander usou 'Ember'. Bulbasaur perdeu 20 HP.
-```
+<p align="center">
+![image](https://github.com/user-attachments/assets/a0f2172a-5b63-4019-b4da-d55210f65535)
+</p>
 
 ### 4. **Pokeagenda**
 

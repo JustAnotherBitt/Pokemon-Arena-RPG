@@ -1,5 +1,7 @@
 import random
-class Pokemon: #classe pai
+
+
+class Pokemon:  # classe pai
 
     def __init__(self, especie, level=None, nome=None):
         self.especie = especie
@@ -7,11 +9,11 @@ class Pokemon: #classe pai
         if level:
             self.level = level
         else:
-            self.level = random.randint(1,100)
+            self.level = random.randint(1, 100)
 
         if nome:
             self.nome = nome
-        else: #se o pokemon não tiver nome, o nome dele será a espécie
+        else:  # se o pokemon não tiver nome, o nome dele será a espécie
             self.nome = especie
 
         self.ataque = self.level * 5
@@ -31,7 +33,8 @@ class Pokemon: #classe pai
         else:
             return False
 
-class PokemonEletrico(Pokemon): #pokemon eletrico = classe filha do Pokemon
+
+class PokemonEletrico(Pokemon):  # pokemon eletrico = classe filha do Pokemon
     tipo = "elétrico"
 
     def atacar(self, pokemon):
@@ -46,10 +49,10 @@ class PokemonFogo(Pokemon):
         print(f'\033[33m{self} lançou uma bola de fogo na cabeça de {pokemon}\033[m')
         return super().atacar(pokemon)
 
+
 class PokemonAgua(Pokemon):  # pokemon eletrico = classe filha do Pokemon
     tipo = "água"
 
     def atacar(self, pokemon):
         print(f'\033[33m{self} lançou um jato de agua em {pokemon}\033[m')
         return super().atacar(pokemon)
-

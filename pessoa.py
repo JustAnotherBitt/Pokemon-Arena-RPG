@@ -18,7 +18,9 @@ POKEMONS = [
 
 class Pessoa:
 
-    def __init__(self, nome=None, pokemons=[], dinheiro=100):  # pokemons é uma lista
+    def __init__(self, nome=None, pokemons=None, dinheiro=100):  # pokemons é uma lista
+        if pokemons is None:
+            pokemons = []
         if nome:
             self.nome = nome
         else:
@@ -36,7 +38,7 @@ class Pessoa:
             print()
             sleep(1)
             print(f'\033[33mPokemons de {self}:\033[m')
-            for index, pokemon in enumerate(self.pokemons,start=1):
+            for index, pokemon in enumerate(self.pokemons, start=1):
                 print(f'{index} - {pokemon}')
             sleep(3)
         else:
@@ -119,7 +121,7 @@ class Player(Pessoa):  # player = subtipo da pessoa
             sleep(2)
             print(f'\033[32mUm Pokémon selvagem apareceu: {pokemon}.\033[m')
             print()
-            sleep(2)
+            sleep(1)
 
             escolha = str(input('Deseja capturar o pokemon? [S/N] ')).upper().strip()
             if escolha == 'S':
@@ -136,7 +138,7 @@ class Player(Pessoa):  # player = subtipo da pessoa
             print()
             print('\033[33mEssa exploração não deu em nada...\033[m')
             print()
-            sleep(2)
+            sleep(1)
 
 
 class Inimigo(Pessoa):

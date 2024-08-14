@@ -6,7 +6,7 @@ from time import sleep
 def escolher_pokemon_inicial(player):
     print(f'\033[34m{player}\033[m, agora você escolherá o Pokémon que irá lhe acompanhar nesta jornada!')
     print()
-    sleep(2)
+    sleep(1)
 
     pikachu = PokemonEletrico('Pikachu', level=1)
     charmander = PokemonFogo('Charmander', level=1)
@@ -52,7 +52,7 @@ def carregar_jogo():
             player = pickle.load(arquivo)  # transforma o conteúdo do arquivo no objeto player
             print('\033[3;32mLoading feito com sucesso!\033[m')
             return player
-    except Exception as error:
+    except:
         print('\033[37mSave não encontrado.\033[m')
 
 
@@ -77,25 +77,25 @@ if __name__ == "__main__":  # executa o codigo apenas se rodar esse arquivo (mai
 A partir de agora, sua missão é se tornar um mestre dos Pokémons.
 Capture o máximo de Pokémos que conseguir e lute contra seus inimigos!''')
         print()
-        sleep(5)
+        sleep(4)
         player.mostrar_dinheiro()
 
         if player.pokemons:
             print()
             print('Já vi que você tem alguns pokemons...')
-            sleep(2)
+            sleep(1)
             player.mostrar_pokemons()
         else:
             print()
             print('Você não tem nenhum Pokémon, portanto, precisa escolher um...')
-            sleep(2)
+            sleep(1)
             escolher_pokemon_inicial(player)
 
         sleep(1)
         print('Pronto! Agora que você já possui um Pokémon, enfrente seu arqui-inimigo desde seu nascimento: \033[31mGary.\033[m')
         gary = Inimigo(nome='Gary', pokemons=[PokemonAgua('Squirtle', level=1)])
         print()
-        sleep(3)
+        sleep(1)
         player.batalhar(gary)
         salvar_jogo(player)
 
@@ -109,7 +109,7 @@ Capture o máximo de Pokémos que conseguir e lute contra seus inimigos!''')
 2 - Lutar com um inimigo
 3 - Ver pokeagenda\033[m''')
         print('-' * 15)
-        sleep(1)
+        sleep(0.5)
         escolha = int(input('Sua escolha: '))
 
         if escolha == 0:

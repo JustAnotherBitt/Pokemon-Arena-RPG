@@ -115,6 +115,7 @@ Capture o máximo de Pokémos que conseguir e lute contra seus inimigos!''')
         if escolha == 0:
             print()
             print('\033[3;31mSaindo do jogo...\033[m')
+            print('\033[3;31mGoodbye\033[m')
             break
         elif escolha == 1:
             player.explorar()

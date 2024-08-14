@@ -36,7 +36,7 @@ class Pessoa:
             print()
             sleep(1)
             print(f'\033[33mPokemons de {self}:\033[m')
-            for index, pokemon in enumerate(self.pokemons):
+            for index, pokemon in enumerate(self.pokemons,start=1):
                 print(f'{index} - {pokemon}')
             sleep(3)
         else:
@@ -53,7 +53,7 @@ class Pessoa:
             print('\033[3;31mERRO: Esse jogador não possui nenhum pokemon\033[m')
 
     def mostrar_dinheiro(self):
-        print(f'Você possui ${self.dinheiro} em sua conta.')
+        print(f'Você possui \033[32m${self.dinheiro}\033[m em sua conta.')
 
     def ganhar_dinheiro(self, quantidade):
         self.dinheiro += quantidade
@@ -61,7 +61,7 @@ class Pessoa:
         self.mostrar_dinheiro()
 
     def batalhar(self, pessoa):
-        print(f'\033[33m{self} iniciou uma batalha com \033[4m{pessoa}\033[m\033[m.')
+        print(f'\033[33m{self} iniciou uma batalha com \033[31m{pessoa}.\033[m\033[m')
         sleep(1)
         pessoa.mostrar_pokemons()
         print()
@@ -75,12 +75,12 @@ class Pessoa:
             while True:
                 vitoria = pokemon.atacar(pokemon_inimigo)
                 if vitoria:
-                    print(f'\033[1;32m{self} ganhou a batalha!\033[m')
+                    print(f'\033[1;30;42m == {self} ganhou a batalha! == \033[m')
                     self.ganhar_dinheiro(pokemon_inimigo.level * 100)
                     break
 
                 if pokemon_inimigo.atacar(pokemon):  # vitória inimiga
-                    print(f'\033[1;31m{pessoa} ganhou a batalha.\033[m')
+                    print(f'\033[1;30;41m == {pessoa} ganhou a batalha. == \033[m')
                     break
 
         else:
@@ -103,14 +103,14 @@ class Player(Pessoa):  # player = subtipo da pessoa
             while True:
                 try:
                     escolha = int(input('Escolha seu pokemon: '))
-                    pokemon_escolhido = self.pokemons[escolha]
+                    pokemon_escolhido = self.pokemons[escolha-1]
                     print()
                     print(f'\033[1;32m{pokemon_escolhido} eu escolho você!\033[m')
                     return pokemon_escolhido
                 except:
                     print('\033[3;31mEscolha inválida\033[m')
         else:
-            print('\033[3;31mERRO: Esse jogador não poossui nenhum pokemon\033[m')
+            print('\033[3;31mERRO: Esse jogador não possui nenhum pokemon\033[m')
 
     def explorar(self):
         if random.random() <= 0.3:  # 30% de chance de isso acontecer

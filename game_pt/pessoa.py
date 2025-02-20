@@ -1,17 +1,33 @@
 from time import sleep
 import colors as c
+import textwrap
 from pokemon import * # Importa todas as classes
 
-NOMES = ['JogadorXP', 'RandSuper', 'RedPlayer', 'BluePlayer', 'FinMaster', 'ExtraPower', 'FullPlayer']
+NOMES = ['AbyssWanderer', 'ShadowReaper', 'CrypticPhantom',
+         'CyberHex', 'GlitchOverlord', 'RootPhantom', '0xDeadByte',
+         'BlackenedTears', 'ArcaneDagger', 'InfernalSpecter']
 
 POKEMONS = [
     PokemonFogo('Charmander'),
-    PokemonFogo('Foguinho'),
-    PokemonFogo('Charmilion'),
+    PokemonFogo('Typhlosion'),
+    PokemonFogo('Charmeleon'),
+    PokemonFogo('Flareon'),
+    PokemonFogo('Arcanine'),
+    PokemonFogo('Blaziken'),
+
     PokemonAgua('Squirtle'),
-    PokemonAgua('Magicaro'),
+    PokemonAgua('Magikarp'),
+    PokemonAgua('Totodile'),
+    PokemonAgua('Vaporeon'),
+    PokemonAgua('Gyarados'),
+    PokemonAgua('Swampert'),
+
     PokemonEletrico('Pikachu'),
-    PokemonEletrico('Raichu')
+    PokemonEletrico('Raichu'),
+    PokemonEletrico('Jolteon'),
+    PokemonEletrico('Electivire'),
+    PokemonEletrico('Zapdos'),
+    PokemonEletrico('Luxray')
 ]
 
 
@@ -56,7 +72,7 @@ class Pessoa:
         self.mostrar_dinheiro()
 
     def batalhar(self, pessoa):
-        print(f'{c.green}{self} iniciou uma batalha com {c.red}{pessoa}.{c.x}{c.x}')
+        print(f'{c.bold_white_yellow}=== {self} iniciou uma batalha com {pessoa} ==={c.x}')
         sleep(1)
         pessoa.mostrar_pokemons()
         print()
@@ -70,12 +86,14 @@ class Pessoa:
             while True:
                 vitoria = pokemon.atacar(pokemon_inimigo)
                 if vitoria:
-                    print(f'{c.bold_white_green} == {self} ganhou a batalha! == {c.x}')
+                    print(textwrap.dedent(f'''
+                        {c.bold_white_red} ==== {self} ganhou a batalha ==== {c.x} \n'''))
                     self.ganhar_dinheiro(pokemon_inimigo.level * 100)
                     break
 
-                if pokemon_inimigo.atacar(pokemon):  # vitória inimiga
-                    print(f'{c.bold_white_red} == {pessoa} ganhou a batalha. == {c.x}')
+                if pokemon_inimigo.atacar(pokemon):  # Vitória inimiga
+                    print(textwrap.dedent(f'''
+                        {c.bold_white_red} ==== {pessoa} ganhou a batalha ==== {c.x} \n'''))
                     break
         else:
             print('Essa batalha não pode ocorrer...')
@@ -99,7 +117,9 @@ class Player(Pessoa):  # Player = subtipo da pessoa
                     escolha = int(input('Escolha seu pokemon: '))
                     pokemon_escolhido = self.pokemons[escolha-1]
                     print()
-                    print(f'{c.bold_green}{pokemon_escolhido} eu escolho você!{c.x}')
+                    print(f'{c.bold_green}{pokemon_escolhido}, eu escolho você!{c.x}')
+                    print(textwrap.dedent(f'''
+                        {c.bold_white_blue}================= ARENA ================={c.x} \n'''))
                     return pokemon_escolhido
                 except:
                     print(f'{c.italic_red}Escolha inválida{c.x}')

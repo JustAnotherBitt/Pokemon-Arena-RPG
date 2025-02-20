@@ -1,8 +1,15 @@
 # Pokémon Arena RPG
 
-## Description
+## Overview
 
 Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written entirely in Python where you can explore the world of Pokémon, battle enemies, earn monetary rewards, find new Pokémon, and much more. The game's progress is saved in a database, ensuring you always resume from where you left off.
+
+## First look
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/f139cf0e-b5f5-4848-9bb3-28ad3e62ee7e" alt="" width="850">
+</p>
+
 
 ## Features
 

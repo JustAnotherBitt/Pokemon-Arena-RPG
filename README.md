@@ -78,4 +78,4 @@ Progress is saved automatically, allowing you to continue from where you left of
 
 ## Observation
 
-Language update is coming soon!! 
+Language update in progress!!

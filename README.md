@@ -41,7 +41,11 @@ cd your_repository
 
 ## Running the Game
 
-To start the game, click on `run` (or press `Shift + F10`) to execute the `main.py` file.
+To start the game, execute the `main.py` file.
+
+```bash
+python main.py
+```
 
 ## Feature Examples
 

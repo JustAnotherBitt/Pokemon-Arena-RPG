@@ -59,6 +59,12 @@ To start the game on your **linux terminal**, execute the following command:
 PYTHONPATH=$(pwd) python3 main.py
 ```
 
+To start the game on your **PowerShell**, execute the following command:
+
+```bash
+$env:PYTHONPATH = (Get-Location).Path; python main.py
+```
+
 ## Feature Examples
 
 ### 1. **Login Screen**

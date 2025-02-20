@@ -37,6 +37,7 @@ def escolher_pokemon_inicial(player):
 def salvar_jogo(player):
     try:
         with open('database.db', 'wb') as arquivo:  # wb = escrever / binário
+            # noinspection PyTypeChecker
             pickle.dump(player, arquivo)
             sleep(1)
             print(f"{c.italic_gray}Jogo salvo com sucesso!{c.x}")
@@ -52,7 +53,7 @@ def carregar_jogo():
             print(f'{c.italic_green}Loading feito com sucesso!{c.x}')
             return player
     except:
-        print(f'{c.italic_gray}Save não encontrado.{c.x}')
+        print(f'{c.italic_gray}Save não encontrado :({c.x}')
 
 
 # ARENA:
@@ -61,7 +62,7 @@ if __name__ == "__main__":
     player = carregar_jogo()
 
     if not player:
-        nome = str(input("Qual é o seu nome? -> "))
+        nome = str(input("Escolha um nickname incrível: "))
         player = Player(nome)
         sleep(1)
         print()
@@ -70,7 +71,7 @@ if __name__ == "__main__":
         print()
         print(textwrap.dedent(f'''
             Olá, {c.blue}{nome}{c.x}! Este é um mundo habitado por Pokémons. 
-            A partir de agora, sua missão é se tornar um mestre dos Pokémons.
+            A partir de agora, sua missão é se tornar um mestre dos Pokémons!
             Capture o máximo de Pokémos que conseguir e lute contra seus inimigos!'''))
         print()
         sleep(3)
@@ -82,14 +83,16 @@ if __name__ == "__main__":
             sleep(1)
             player.mostrar_pokemons()
         else:
-            print()
-            print('O primeiro passo para se tornar um mestre de Pokémons começa agora! Escolha seu parceiro de batalha!')
+            print(textwrap.dedent(f'''
+                O primeiro passo para se tornar um mestre de Pokémons começa agora! 
+                Escolha seu parceiro de batalha!'''))
             sleep(1)
             escolher_pokemon_inicial(player)
 
         sleep(1)
         print(textwrap.dedent(f'''
-            Tudo pronto! Com seu primeiro Pokémon em mãos, é hora de encarar seu rival de longa data: {c.red}Gary.{c.x}
+            Tudo pronto! 
+            Com seu primeiro Pokémon em mãos, é hora de encarar seu rival de longa data: {c.red}Gary.{c.x}
             Mostre do que você é capaz!'''))
         gary = Inimigo(nome='Gary', pokemons=[PokemonAgua('Squirtle', level=1)])
         print()

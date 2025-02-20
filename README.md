@@ -1,85 +1,70 @@
-# Pokémon Terminal Game
+# Pokémon Arena RPG
 
-## Descrição
+## Description
 
-Bem-vindo ao **Pokémon Terminal Game**! Este é um jogo de terminal escrito inteiramente em Python onde você pode explorar o mundo dos Pokémons, lutar com inimigos, ganhar recompensas em dinheiro, encontrar novos Pokémons, e muito mais. O progresso do jogo é salvo em um banco de dados, garantindo que você sempre retome a partir do ponto em que parou.
+Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written entirely in Python where you can explore the world of Pokémon, battle enemies, earn monetary rewards, find new Pokémon, and much more. The game's progress is saved in a database, ensuring you always resume from where you left off.
 
-## Funcionalidades
+## Features
 
-- **Exploração**: Explore o mundo dos Pokémon e descubra novas áreas.
-- **Batalhas**: Enfrente inimigos em batalhas emocionantes e ganhe recompensas.
-- **Recompensas**: Ganhe dinheiro e utilize-o para melhorar sua experiência no jogo.
-- **Pokémons**: Encontre e capture novos Pokémon durante sua jornada.
-- **Pokeagenda**: Visualize seus Pokémon atuais e gerencie sua equipe.
-- **Salvamento**: O progresso é salvo automaticamente em um arquivo de banco de dados (`database.db`).
+- **Exploration**: Explore the Pokémon world and discover new areas.
+- **Battles**: Engage in exciting battles with enemies and earn rewards.
+- **Rewards**: Earn money and use it to enhance your gaming experience.
+- **Pokémon**: Find and capture new Pokémon during your journey.
+- **Pokéagenda**: View your current Pokémon and manage your team.
+- **Saving**: Progress is automatically saved in a database file (`database.db`).
 
-## Requisitos
-- **Python 3.x**: Certifique-se de ter o Python 3.x instalado em seu ambiente.
-- **IDE**: Para este projeto, eu usei o <a href="https://www.jetbrains.com/pycharm/download/?section=windows">PyCharm</a> (Edição Community).
+## Requirements
 
+- **Python 3.x**: Ensure you have Python 3.x installed in your environment.
+- **IDE**: For this project, I used <a href="https://www.jetbrains.com/pycharm/download/?section=windows">PyCharm</a> (Community Edition).
 
-### Tela Inicial
+### Initial Screen
 
-Na primeira vez que você jogar, o jogo exibirá a mensagem:
+The first time you play, the game will display the message:
 
 ```
-Save não encontrado.
+Save not found.
 ```
 
-Você precisará fornecer um nome para o seu jogador. Após a configuração inicial, o login será salvo e, em execuções futuras, você continuará a partir do progresso salvo no banco de dados.
 
-## Instalação
+You will need to provide a name for your player. After the initial setup, your login will be saved, and in future sessions, you will continue from the progress saved in the database.
 
-**Clone o Repositório**
+## Installation
 
-   ```bash
-   git clone https://github.com/LeRodrigues2005/Minigame-Pokemon-RPG
-   cd seu_repositorio
-   ```
+**Clone the Repository**
 
-
-## Executando o Jogo
-
-Para iniciar o jogo, clique em `run` (ou `shift + f10`) para rodar o arquivo `main.py`
+```bash
+git clone https://github.com/LeRodrigues2005/Minigame-Pokemon-RPG
+cd your_repository
+```
 
 
-## Exemplos de Funcionalidades
+## Running the Game
 
-### 1. **Tela de Login**
+To start the game, click on `run` (or press `Shift + F10`) to execute the `main.py` file.
 
-Na primeira execução do jogo, você será solicitado a fornecer um nome para seu jogador:
+## Feature Examples
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/4eed3af3-1fa5-4bd2-96c5-a40172b8c8c6" alt="" width="400">
-</p>
+### 1. **Login Screen**
 
-### 2. **Exploração do Mundo**
+On the first run, you will be prompted to provide a name for your player.
 
-Ao explorar o mundo, você pode encontrar novas áreas e Pokémon:
+### 2. **World Exploration**
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/99394557-5c39-4c28-8d8c-a488e5a9f13c" alt="" width="400">
-</p>
+While exploring the world, you can find new areas and Pokémon.
 
+### 3. **Battles**
 
-### 3. **Batalhas**
+Face enemies and engage in battles.
 
-Enfrente inimigos e participe de batalhas:
+### 4. **Pokéagenda**
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/a0f2172a-5b63-4019-b4da-d55210f65535" alt="" width="400">
-</p>
+View your current Pokémon with the Pokéagenda.
 
-### 4. **Pokeagenda**
+### 5. **Progress Saving**
 
-Visualize seus Pokémon atuais com a pokeagenda:
+Progress is saved automatically, allowing you to continue from where you left off in the next game session. 
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/68bad675-dc1d-424a-acc5-79b98be4d0a9" alt="" width="400">
-</p>
+## Observation
 
-### 5. **Salvamento do Progresso**
-
-O progresso é salvo automaticamente, e você continuará de onde parou na próxima execução do jogo.
-
-
+Language update is coming soon!! 

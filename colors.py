@@ -6,6 +6,9 @@ green = "\033[32m"
 yellow = "\033[33m"
 blue = "\033[34m"
 
+# Style
+
+underline = "\033[4m"
 
 # Colorful text with background (40-47)
 
@@ -22,6 +25,9 @@ italic_gray = "\033[3;37m"
 # Colorful text with style and background
 # style_textColor_backgroundColor
 
-bold_white_green = "\033[1;30;42m"
 bold_white_red = "\033[1;30;41m"
+bold_white_green = "\033[1;30;42m"
+bold_white_yellow = "\033[1;30;43m"
+bold_white_blue = "\033[1;30;44m"
+
 

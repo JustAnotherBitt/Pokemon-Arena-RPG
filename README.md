@@ -48,12 +48,12 @@ cd your_repository
 
 ## Running the Game
 
-To start the game on your IDE, execute the `main.py` file.
+To start the game on your **IDE**, execute the `main.py` file.
 
 ```bash
 python main.py
 ```
-To start the game on your linux terminal, execute the following command: 
+To start the game on your **linux terminal**, execute the following command: 
 
 ```bash
 PYTHONPATH=$(pwd) python3 main.py

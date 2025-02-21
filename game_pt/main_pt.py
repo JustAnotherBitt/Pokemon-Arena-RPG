@@ -3,6 +3,7 @@ from pessoa import *
 import colors as c
 from time import sleep
 import textwrap
+import ascii_art
 
 
 def escolher_pokemon_inicial(player):
@@ -23,12 +24,15 @@ def escolher_pokemon_inicial(player):
 
         if escolha == '1':
             player.capturar(pikachu)
+            ascii_art.pikachu_ascii()
             break
         elif escolha == '2':
             player.capturar(charmander)
+            ascii_art.charmander_ascii()
             break
         elif escolha == '3':
             player.capturar(squirtle)
+            ascii_art.squirtle_ascii()
             break
         else:
             print(f'{c.italic_red}Escolha inválida.{c.x}')
@@ -117,6 +121,7 @@ if __name__ == "__main__":
             print()
             print(f'{c.red}Saindo do jogo...{c.x}')
             print(f'{c.red}Goodbye!{c.x}')
+            ascii_art.bye_ascii()
             break
         elif escolha == 1:
             player.explorar()

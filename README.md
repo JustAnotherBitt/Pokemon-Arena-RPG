@@ -20,10 +20,6 @@ Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written
 - **Pokéagenda**: View your current Pokémon and manage your team.
 - **Saving**: Progress is automatically saved in a database file (`database.db`).
 
-## Requirements
-
-- **Python 3.x**: Ensure you have Python 3.x installed in your environment.
-- **IDE**: For this project, I used <a href="https://www.jetbrains.com/pycharm/download/?section=windows">PyCharm</a> (Community Edition).
 
 ### Initial Screen
 

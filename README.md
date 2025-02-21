@@ -7,7 +7,7 @@ Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written
 ## First look
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/f139cf0e-b5f5-4848-9bb3-28ad3e62ee7e" alt="" width="850">
+<img src="https://github.com/user-attachments/assets/4455425d-2b8e-4975-8b99-ad7c9c554cd4" alt="" width="850">
 </p>
 
 

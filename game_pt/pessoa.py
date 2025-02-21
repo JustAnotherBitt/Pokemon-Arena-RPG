@@ -135,7 +135,7 @@ class Player(Pessoa):  # Player = subtipo da pessoa
             print()
             sleep(1)
 
-            escolha = str(input('Deseja capturar o pokemon? [S/N] ')).upper().strip()
+            escolha = str(input('Deseja capturar o Pokémon? [S/N] ')).upper().strip()
             if escolha == 'S':
                 if random.random() >= 0.5:
                     self.capturar(pokemon)
@@ -156,7 +156,7 @@ class Inimigo(Pessoa):
     def __init__(self, nome=None, pokemons=None):
         if not pokemons:  # Se não tiver pokémons
             pokemons_aleatorios = []
-            for i in range(random.randint(1, 6)):  # Escolha uma qnt aleatória de pokemons aleatórios
+            for i in range(random.randint(1, 6)):  # Escolha uma qnt aleatória de pokémons aleatórios
                 pokemons_aleatorios.append(random.choice(POKEMONS))
 
             super().__init__(nome=nome, pokemons=pokemons_aleatorios)  # Chama o init classe pai (Pessoa)

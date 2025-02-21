@@ -7,7 +7,7 @@ Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written
 ## First look
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/f139cf0e-b5f5-4848-9bb3-28ad3e62ee7e" alt="" width="850">
+<img src="https://github.com/user-attachments/assets/4455425d-2b8e-4975-8b99-ad7c9c554cd4" alt="" width="850">
 </p>
 
 
@@ -20,10 +20,6 @@ Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written
 - **Pokéagenda**: View your current Pokémon and manage your team.
 - **Saving**: Progress is automatically saved in a database file (`database.db`).
 
-## Requirements
-
-- **Python 3.x**: Ensure you have Python 3.x installed in your environment.
-- **IDE**: For this project, I used <a href="https://www.jetbrains.com/pycharm/download/?section=windows">PyCharm</a> (Community Edition).
 
 ### Initial Screen
 
@@ -42,7 +38,7 @@ You will need to provide a name for your player. After the initial setup, your l
 
 ```bash
 git clone https://github.com/JustAnotherBitt/Pokemon-Arena-RPG.git
-cd your_repository
+cd Pokemon-Arena-RPG
 ```
 
 
@@ -57,6 +53,12 @@ To start the game on your **linux terminal**, execute the following command:
 
 ```bash
 PYTHONPATH=$(pwd) python3 main.py
+```
+
+To start the game on your **PowerShell**, execute the following command:
+
+```bash
+$env:PYTHONPATH = (Get-Location).Path; python main.py
 ```
 
 ## Feature Examples

@@ -38,7 +38,7 @@ You will need to provide a name for your player. After the initial setup, your l
 
 ```bash
 git clone https://github.com/JustAnotherBitt/Pokemon-Arena-RPG.git
-cd your_repository
+cd Pokemon-Arena-RPG
 ```
 
 

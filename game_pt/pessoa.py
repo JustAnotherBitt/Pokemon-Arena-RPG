@@ -46,7 +46,7 @@ class Pessoa:
         if self.pokemons:
             print()
             sleep(1)
-            print(f'{c.yellow}Pokemons de {self}:{c.x}')
+            print(f'{c.yellow}Pokémons de {self}:{c.x}')
             for index, pokemon in enumerate(self.pokemons, start=1):
                 print(f'{index} - {pokemon}')
             sleep(1)
@@ -61,7 +61,7 @@ class Pessoa:
             return pokemon_escolhido
 
         else:
-            print('\033[3;31mERRO: Esse jogador não possui nenhum pokemon.{c.x}}')
+            print('\033[3;31mERRO: Esse jogador não possui nenhum Pokémon.{c.x}}')
 
     def mostrar_dinheiro(self):
         print(f'Você possui {c.green}${self.dinheiro}{c.x} em sua conta.')
@@ -72,7 +72,7 @@ class Pessoa:
         self.mostrar_dinheiro()
 
     def batalhar(self, pessoa):
-        print(f'{c.bold_white_yellow}=== {self} iniciou uma batalha com {pessoa} ==={c.x}')
+        print(f'{c.bold_white_blue}=== {self} iniciou uma batalha com {pessoa} ==={c.x}')
         sleep(1)
         pessoa.mostrar_pokemons()
         print()

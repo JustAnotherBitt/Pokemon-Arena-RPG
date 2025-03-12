@@ -102,7 +102,7 @@ class Pessoa:
 class Player(Pessoa):  # Player = subtipo da pessoa
     tipo = 'player'
 
-    def capturar(self, pokemon):
+    def capturar(self, pokemon):  # now it is working :)
         self.pokemons.append(pokemon)
         print()
         print(f'{c.green}{self} capturou {pokemon}!{c.x}')
@@ -127,6 +127,7 @@ class Player(Pessoa):  # Player = subtipo da pessoa
             print('\033[3;31mERRO: Esse jogador não possui nenhum pokemon{c.x}}')
 
     def explorar(self):
+        # switch instead if?
         if random.random() <= 0.3:  # 30% de chance de isso acontecer
             pokemon = random.choice(POKEMONS)
             print()
@@ -138,16 +139,21 @@ class Player(Pessoa):  # Player = subtipo da pessoa
             escolha = str(input('Deseja capturar o Pokémon? [S/N] ')).upper().strip()
             if escolha == 'S':
                 if random.random() >= 0.5:
-                    self.capturar(pokemon)
+                    self.capturar(pokemon) 
+                    self.mostrar_pokemons()
+                    
                 else:
-                    sleep(1) and print(f'{c.red}Oh não! {pokemon} fugiu. Boa sorte na próxima...{c.x}')
+                    sleep(1)
+                    print(f'{c.red}Oh não! {pokemon} fugiu. Boa sorte na próxima...{c.x}')
             else:
-                sleep(1) and print('Ok, boa viagem!')
+                sleep(1)
+                print('Ok, boa viagem!')
         else:
             sleep(2) and print()
-            print(f'{c.yellow}Essa exploração não deu em nada...{c.x}')
+            print(f'{c.yellow}Essa exploração não deu em nada...{c.x}') 
             print()
             sleep(1)
+        
 
 
 class Inimigo(Pessoa):

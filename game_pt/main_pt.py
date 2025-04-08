@@ -38,12 +38,13 @@ def escolher_pokemon_inicial(player):
             print(f'{c.italic_red}Escolha inválida.{c.x}')
 
 
-def salvar_jogo(player):
+def salvar_jogo(player):  # fix database!!!!!!!!!!!!!!
     try:
         with open('database.db', 'wb') as arquivo:  # wb = escrever / binário
             # noinspection PyTypeChecker
             pickle.dump(player, arquivo)
             sleep(1)
+            print()
             print(f"{c.italic_gray}Jogo salvo com sucesso!{c.x}")
     except Exception as error:
         print(f'{c.italic_red}Erro ao salvar o jogo.{c.x}')
@@ -112,7 +113,9 @@ if __name__ == "__main__":
             {c.blue}0 - Sair do jogo
             1 - Explorar o mundo
             2 - Lutar contra um inimigo
-            3 - Ver Pokéagenda{c.x}''').strip())
+            3 - Ver Pokéagenda
+            4 - Ver carteira
+            5 - Conquistas alcançadas{c.x}''').strip())
         print('=' * 28)
         sleep(0.5)
         escolha = int(input('Sua escolha: '))
@@ -132,5 +135,9 @@ if __name__ == "__main__":
             salvar_jogo(player)
         elif escolha == 3:
             player.mostrar_pokemons()
+        elif escolha == 4:
+            player.mostrar_dinheiro()
+        elif escolha == 5:
+            player.mostrar_conquistas()
         else:
             print(f'{c.red}Escolha inválida.{c.x}')

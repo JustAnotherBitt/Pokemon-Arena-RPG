@@ -39,20 +39,26 @@ class Pessoa:
         self.pokemons = pokemons
         self.dinheiro = dinheiro  # Dinheiro inicial
 
+
     def __str__(self):  # Característica de todas as pessoas
         return self.nome  # Quando printar uma pessoa, retorne o nome dela
 
     def mostrar_pokemons(self):
         if self.pokemons:
             print()
-            sleep(1)
+            sleep(0.5)
             print(f'{c.yellow}Pokémons de {self}:{c.x}')
             for index, pokemon in enumerate(self.pokemons, start=1):
                 print(f'{index} - {pokemon}')
-            sleep(1)
+            sleep(0.5)
         else:
             print(f'{self} não possui nenhum pokemon.')
-            sleep(1)
+            sleep(0.5)
+    
+    def mostrar_conquistas(self): # fix
+        sleep(0.5)
+        print()
+        print("Função chamada")
 
     def escolher_pokemon(self):
         if self.pokemons:
@@ -64,6 +70,8 @@ class Pessoa:
             print('\033[3;31mERRO: Esse jogador não possui nenhum Pokémon.{c.x}}')
 
     def mostrar_dinheiro(self):
+        sleep(0.5)
+        print()
         print(f'Você possui {c.green}${self.dinheiro}{c.x} em sua conta.')
 
     def ganhar_dinheiro(self, quantidade):
@@ -72,6 +80,7 @@ class Pessoa:
         self.mostrar_dinheiro()
 
     def batalhar(self, pessoa):
+        print()
         print(f'{c.bold_white_blue}=== {self} iniciou uma batalha com {pessoa} ==={c.x}')
         sleep(1)
         pessoa.mostrar_pokemons()
@@ -101,12 +110,27 @@ class Pessoa:
 
 class Player(Pessoa):  # Player = subtipo da pessoa
     tipo = 'player'
-
+    
     def capturar(self, pokemon):  # now it is working :)
         self.pokemons.append(pokemon)
         print()
         print(f'{c.green}{self} capturou {pokemon}!{c.x}')
         print()
+        
+        self.verificar_conquistas()
+
+    def verificar_conquistas(self):
+        if len(self.pokemons) == 5:
+            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Colecionador Inicial - 5 Pokémons capturados!{c.x}')
+        if len(self.pokemons) == 10:
+            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Colecionador Mediano - 10 Pokémons capturados!{c.x}')
+        if len(self.pokemons) == 20:
+            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Colecionador Master - 20 Pokémons capturados!{c.x}')
+        if len(self.pokemons) == 30:
+            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Colecionador Expert - 30 Pokémons capturados!{c.x}')
+        if len(self.pokemons) == 40:
+            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Última conquista da classe Colecionador - 40 Pokémons capturados! - Nível Supremo atingido. {c.x}')
+        
 
     def escolher_pokemon(self):
         self.mostrar_pokemons()

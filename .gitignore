@@ -2,8 +2,6 @@ __pycache__/
 database.db
 %SystemDrive%/
 %SystemDrive%/ProgramData/Microsoft/Windows/Caches/
-players.txt
-pokemons.txt
 .idea
 game_pt/__pycache__
-todo.txt
+text_files

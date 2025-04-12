@@ -9,7 +9,7 @@ def choose_language():
         print("1 - English")
         print("2 - Portuguese (Brazil)")
 
-        choice = input("Option: ")
+        choice = input("\nOption: ")
 
         if choice == "1":
             # subprocess.run(["python", "game_en/main_en.py"])

@@ -3,7 +3,7 @@ import colors as c
 import textwrap
 from pokemon import * # Importa todas as classes
 
-NOMES = ['AbyssWanderer', 'ShadowReaper', 'CrypticPhantom',
+nameS = ['AbyssWanderer', 'ShadowReaper', 'CrypticPhantom',
          'CyberHex', 'GlitchOverlord', 'RootPhantom', '0xDeadByte',
          'BlackenedTears', 'ArcaneDagger', 'InfernalSpecter']
 
@@ -33,55 +33,64 @@ POKEMONS = [
 
 class Pessoa:
 
-    def __init__(self, nome=None, pokemons=None, dinheiro=100):  # Pokemons é uma lista
+    def __init__(self, name=None, pokemons=None, money=100):
         pokemons = [] if pokemons is None else pokemons
-        self.nome = nome or random.choice(NOMES)
+        self.name = name or random.choice(nameS)
         self.pokemons = pokemons
-        self.dinheiro = dinheiro  # Dinheiro inicial
+        self.money = money
 
+    def __str__(self):
+        return self.name
 
-    def __str__(self):  # Característica de todas as pessoas
-        return self.nome  # Quando printar uma pessoa, retorne o nome dela
+    def to_dict(self):
+        return {
+            'name': self.name,
+            'money': self.money,
+            'pokemons': [p.to_dict() for p in self.pokemons],
+            'tipo': self.tipo
+        }
+
+    @classmethod
+    def from_dict(cls, data):
+        player = cls(data['name'])
+        player.money = data['money']
+        player.pokemons = [Pokemon.from_dict(p) for p in data['pokemons']]
+        return player
 
     def mostrar_pokemons(self):
         if self.pokemons:
-            print()
             sleep(0.5)
-            print(f'{c.yellow}Pokémons de {self}:{c.x}')
+            print(f'{c.yellow}\nPokémons de {self}:{c.x}')
             for index, pokemon in enumerate(self.pokemons, start=1):
                 print(f'{index} - {pokemon}')
             sleep(0.5)
         else:
             print(f'{self} não possui nenhum pokemon.')
             sleep(0.5)
-    
-    def mostrar_conquistas(self): # fix
+
+    def mostrar_conquistas(self):
         sleep(0.5)
-        print()
-        print("Função chamada")
+        print("/nOpção indisponível no momento :(")
 
     def escolher_pokemon(self):
         if self.pokemons:
             pokemon_escolhido = random.choice(self.pokemons)
             print(f'{c.blue}{self} escolheu {pokemon_escolhido}.{c.x}')
             return pokemon_escolhido
-
         else:
-            print('\033[3;31mERRO: Esse jogador não possui nenhum Pokémon.{c.x}}')
+            print(f'\033[3;31mERRO: Esse jogador não possui nenhum Pokémon.{c.x}')
 
-    def mostrar_dinheiro(self):
+    def mostrar_dinheiro(self):  # Exibe mas o valor é self.money
         sleep(0.5)
-        print()
-        print(f'Você possui {c.green}${self.dinheiro}{c.x} em sua conta.')
+        print(f'\nVocê possui {c.green}${self.money}{c.x} em sua conta.')
 
     def ganhar_dinheiro(self, quantidade):
-        self.dinheiro += quantidade
+        self.money += quantidade
         print(f'{c.green}Você ganhou ${quantidade}{c.x}.')
         self.mostrar_dinheiro()
 
     def batalhar(self, pessoa):
-        print()
-        print(f'{c.bold_white_blue}=== {self} iniciou uma batalha com {pessoa} ==={c.x}')
+        print(f'\n{c.bold_white_blue}=== {self} iniciou uma batalha com {pessoa} ==={c.x}')
         sleep(1)
         pessoa.mostrar_pokemons()
         print()
@@ -100,7 +109,7 @@ class Pessoa:
                     self.ganhar_dinheiro(pokemon_inimigo.level * 100)
                     break
 
-                if pokemon_inimigo.atacar(pokemon):  # Vitória inimiga
+                if pokemon_inimigo.atacar(pokemon):
                     print(textwrap.dedent(f'''
                         {c.bold_white_red} ==== {pessoa} ganhou a batalha ==== {c.x} \n'''))
                     break
@@ -108,37 +117,33 @@ class Pessoa:
             print('Essa batalha não pode ocorrer...')
 
 
-class Player(Pessoa):  # Player = subtipo da pessoa
+
+class Player(Pessoa):
     tipo = 'player'
     
-    def capturar(self, pokemon):  # now it is working :)
+    def capturar(self, pokemon):
         self.pokemons.append(pokemon)
-        print()
-        print(f'{c.green}{self} capturou {pokemon}!{c.x}')
-        print()
-        
+        print(f'\n{c.green}{self} capturou {pokemon}!{c.x}\n')
         self.verificar_conquistas()
 
     def verificar_conquistas(self):
-        if len(self.pokemons) == 5:
-            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Colecionador Inicial - 5 Pokémons capturados!{c.x}')
-        if len(self.pokemons) == 10:
-            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Colecionador Mediano - 10 Pokémons capturados!{c.x}')
-        if len(self.pokemons) == 20:
-            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Colecionador Master - 20 Pokémons capturados!{c.x}')
-        if len(self.pokemons) == 30:
-            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Colecionador Expert - 30 Pokémons capturados!{c.x}')
-        if len(self.pokemons) == 40:
-            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: Última conquista da classe Colecionador - 40 Pokémons capturados! - Nível Supremo atingido. {c.x}')
-        
+        total = len(self.pokemons)
+        conquistas = {
+            5: "Colecionador Inicial - 5 Pokémons capturados!",
+            10: "Colecionador Mediano - 10 Pokémons capturados!",
+            20: "Colecionador Master - 20 Pokémons capturados!",
+            30: "Colecionador Expert - 30 Pokémons capturados!",
+            40: "Última conquista da classe Colecionador - 40 Pokémons capturados! - Nível Supremo atingido."
+        }
+        if total in conquistas:
+            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: {conquistas[total]}{c.x}')
 
     def escolher_pokemon(self):
         self.mostrar_pokemons()
-
         if self.pokemons:
             while True:
                 try:
-                    escolha = int(input('Escolha seu pokemon: '))
+                    escolha = int(input('Escolha seu Pokémon: '))
                     pokemon_escolhido = self.pokemons[escolha-1]
                     print()
                     print(f'{c.bold_green}{pokemon_escolhido}, eu escolho você!{c.x}')
@@ -148,24 +153,20 @@ class Player(Pessoa):  # Player = subtipo da pessoa
                 except:
                     print(f'{c.italic_red}Escolha inválida{c.x}')
         else:
-            print('\033[3;31mERRO: Esse jogador não possui nenhum pokemon{c.x}}')
+            print(f'{c.bold_red}ERRO: Esse jogador não possui nenhum Pokémon{c.x}')
 
     def explorar(self):
-        # switch instead if?
-        if random.random() <= 0.3:  # 30% de chance de isso acontecer
+        if random.random() <= 0.3:
             pokemon = random.choice(POKEMONS)
-            print()
             sleep(1)
-            print(f'{c.green}Um Pokémon selvagem apareceu: {pokemon}.{c.x}')
-            print()
+            print(f'{c.green}\nUm Pokémon selvagem apareceu: {pokemon}.{c.x}\n')
             sleep(1)
 
             escolha = str(input('Deseja capturar o Pokémon? [S/N] ')).upper().strip()
             if escolha == 'S':
                 if random.random() >= 0.5:
-                    self.capturar(pokemon) 
+                    self.capturar(pokemon)
                     self.mostrar_pokemons()
-                    
                 else:
                     sleep(1)
                     print(f'{c.red}Oh não! {pokemon} fugiu. Boa sorte na próxima...{c.x}')
@@ -173,23 +174,36 @@ class Player(Pessoa):  # Player = subtipo da pessoa
                 sleep(1)
                 print('Ok, boa viagem!')
         else:
-            sleep(2) and print()
-            print(f'{c.yellow}Essa exploração não deu em nada...{c.x}') 
-            print()
+            sleep(2)
+            print(f'{c.yellow}\nEssa exploração não deu em nada...{c.x}\n')
             sleep(1)
-        
+
+    def to_dict(self):
+        return {
+            'name': self.name,
+            'money': self.money,
+            'pokemons': [p.to_dict() for p in self.pokemons],
+            'tipo': self.tipo
+        }
+
+    @classmethod
+    def from_dict(cls, data):
+        player = cls(data['name'])
+        player.money = data['money']
+        player.pokemons = [Pokemon.from_dict(p) for p in data['pokemons']]
+        return player
 
 
 class Inimigo(Pessoa):
     tipo = "inimigo"
 
-    def __init__(self, nome=None, pokemons=None):
+    def __init__(self, name=None, pokemons=None):
         if not pokemons:  # Se não tiver pokémons
             pokemons_aleatorios = []
             for i in range(random.randint(1, 6)):  # Escolha uma qnt aleatória de pokémons aleatórios
                 pokemons_aleatorios.append(random.choice(POKEMONS))
 
-            super().__init__(nome=nome, pokemons=pokemons_aleatorios)  # Chama o init classe pai (Pessoa)
+            super().__init__(name=name, pokemons=pokemons_aleatorios)  # Chama o init classe pai (Pessoa)
 
         else:
-            super().__init__(nome=nome, pokemons=pokemons)
+            super().__init__(name=name, pokemons=pokemons)

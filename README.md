@@ -94,7 +94,6 @@ Progress is saved automatically in a database, allowing you to continue from whe
 
 Language update in progress!!
 
----
 
 ## ⚡ What's Coming Next?
 
@@ -103,4 +102,6 @@ Language update in progress!!
 - General optimization and performance improvements.
 
 The journey is far from over — and it’s only getting better.
+
+By <a href="https://github.com/JustAnotherBitt">JustAnotherBitt</a>
 

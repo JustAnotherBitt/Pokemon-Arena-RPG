@@ -1,16 +1,16 @@
-# Pokémon Arena RPG
+# 🎮 Pokémon Arena RPG
 
-## Overview
+## 🧭 Overview
 
 Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written entirely in Python where you can explore the world of Pokémon, battle enemies, earn monetary rewards, find new Pokémon, and much more. The game's progress is saved in a database, ensuring you always resume from where you left off.
 
-## First look
+## 👀 First look
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/4455425d-2b8e-4975-8b99-ad7c9c554cd4" alt="" width="850">
 </p>
 
-## Features
+## ✨ Features
 
 - **Exploration**: Explore the Pokémon world and discover new areas.
 - **Battles**: Engage in exciting battles with enemies and earn rewards.
@@ -21,7 +21,7 @@ Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written
 - **Expanded Menu Options**: Access new options like viewing your wallet and unlocked achievements.
 - **Database Management**: Saves, loads, lists, and deletes players using a structured SQLite database.
 
-### Initial Screen
+### 🖥️ Initial Screen
 
 The first time you play, the game will display the message:
 
@@ -31,7 +31,7 @@ Save not found.
 
 You will need to provide a name for your player. After the initial setup, your login will be saved, and in future sessions, you will continue from the progress saved in the database.
 
-## Installation
+## 📥 Installation
 
 **Clone the Repository**
 
@@ -40,7 +40,7 @@ git clone https://github.com/JustAnotherBitt/Pokemon-Arena-RPG.git
 cd Pokemon-Arena-RPG
 ```
 
-## Running the Game
+## 🚀 Running the Game
 
 To start the game on your **IDE** or **PowerShell**, execute the `main.py` file.
 
@@ -60,7 +60,7 @@ To start the game on your **Linux terminal**, execute the following command:
 PYTHONPATH=$(pwd) python3 main.py
 ```
 
-## Feature Examples
+## 🧩 Feature Examples
 
 ### 1. **Login Screen**
 
@@ -90,7 +90,7 @@ View the achievements you have unlocked throughout your journey.
 
 Progress is saved automatically in a database, allowing you to continue from where you left off in the next game session.
 
-## Observation
+## 🛠️ Observation
 
 - Language update in progress!!
 
@@ -105,5 +105,5 @@ _The journey is far from over — and it’s only getting better._
 
 ---
 
-**By <a href="https://github.com/JustAnotherBitt">JustAnotherBitt</a>.**
+🔹 **By <a href="https://github.com/JustAnotherBitt">JustAnotherBitt</a>.** 🔹
 

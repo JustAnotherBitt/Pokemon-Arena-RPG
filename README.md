@@ -92,7 +92,7 @@ Progress is saved automatically in a database, allowing you to continue from whe
 
 ## Observation
 
-Language update in progress!!
+- Language update in progress!!
 
 
 ## ⚡ What's Coming Next?
@@ -101,7 +101,9 @@ Language update in progress!!
 - New achievements to unlock and expand your adventure.
 - General optimization and performance improvements.
 
-The journey is far from over — and it’s only getting better.
+_The journey is far from over — and it’s only getting better._
 
-By <a href="https://github.com/JustAnotherBitt">JustAnotherBitt</a>
+---
+
+**By <a href="https://github.com/JustAnotherBitt">JustAnotherBitt</a>.**
 

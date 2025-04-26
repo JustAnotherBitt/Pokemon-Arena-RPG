@@ -10,7 +10,6 @@ Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written
 <img src="https://github.com/user-attachments/assets/4455425d-2b8e-4975-8b99-ad7c9c554cd4" alt="" width="850">
 </p>
 
-
 ## Features
 
 - **Exploration**: Explore the Pokémon world and discover new areas.
@@ -18,8 +17,9 @@ Welcome to the **Pokémon Terminal Game**! This is a terminal-based game written
 - **Rewards**: Earn money and use it to enhance your gaming experience.
 - **Pokémon**: Find and capture new Pokémon during your journey.
 - **Pokéagenda**: View your current Pokémon and manage your team.
-- **Saving**: Progress is automatically saved in a database file (`database.db`).
-
+- **Saving**: Progress is automatically saved in a database file (`game_data.db`).
+- **Expanded Menu Options**: Access new options like viewing your wallet and unlocked achievements.
+- **Database Management**: Saves, loads, lists, and deletes players using a structured SQLite database.
 
 ### Initial Screen
 
@@ -28,7 +28,6 @@ The first time you play, the game will display the message:
 ```
 Save not found.
 ```
-
 
 You will need to provide a name for your player. After the initial setup, your login will be saved, and in future sessions, you will continue from the progress saved in the database.
 
@@ -41,28 +40,25 @@ git clone https://github.com/JustAnotherBitt/Pokemon-Arena-RPG.git
 cd Pokemon-Arena-RPG
 ```
 
-
 ## Running the Game
 
-To start the game on your **IDE**, execute the `main.py` file. 
+To start the game on your **IDE** or **PowerShell**, execute the `main.py` file.
 
 ```bash
 python main.py
 ```
-If it doesn't work, use the PowerShell command instead.
 
-To start the game on your **PowerShell**, execute the following command:
+If it doesn't work directly, use the following PowerShell command instead:
 
 ```bash
 $env:PYTHONPATH = (Get-Location).Path; python main.py
 ```
 
-To start the game on your **linux terminal**, execute the following command: 
+To start the game on your **Linux terminal**, execute the following command: 
 
 ```bash
 PYTHONPATH=$(pwd) python3 main.py
 ```
-
 
 ## Feature Examples
 
@@ -82,10 +78,29 @@ Face enemies and engage in battles.
 
 View your current Pokémon with the Pokéagenda.
 
-### 5. **Progress Saving**
+### 5. **Wallet**
 
-Progress is saved automatically, allowing you to continue from where you left off in the next game session. 
+You can now check your current money balance through the menu.
+
+### 6. **Achievements**
+
+View the achievements you have unlocked throughout your journey.
+
+### 7. **Progress Saving**
+
+Progress is saved automatically in a database, allowing you to continue from where you left off in the next game session.
 
 ## Observation
 
 Language update in progress!!
+
+---
+
+## ⚡ What's Coming Next?
+
+- Better organization of the code, with a cleaner `main.py` and categorized functions.
+- New achievements to unlock and expand your adventure.
+- General optimization and performance improvements.
+
+The journey is far from over — and it’s only getting better.
+

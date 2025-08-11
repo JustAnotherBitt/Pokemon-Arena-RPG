@@ -40,6 +40,11 @@ git clone https://github.com/JustAnotherBitt/Pokemon-Arena-RPG.git
 cd Pokemon-Arena-RPG
 ```
 
+## 📥Requirements
+
+- `Python3`: https://www.python.org/downloads
+- `pyfiglet` library: https://pypi.org/project/pyfiglet
+ 
 ## 🚀 Running the Game
 
 To start the game on your **IDE** or **PowerShell**, execute the `main.py` file.

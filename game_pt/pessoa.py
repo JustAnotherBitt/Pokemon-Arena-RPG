@@ -38,6 +38,8 @@ class Pessoa:
         self.name = name or random.choice(nameS)
         self.pokemons = pokemons
         self.money = money
+        self.conquistas = []
+        self.numero_conquistas = 0
 
     def __str__(self):
         return self.name
@@ -47,7 +49,9 @@ class Pessoa:
             'name': self.name,
             'money': self.money,
             'pokemons': [p.to_dict() for p in self.pokemons],
-            'tipo': self.tipo
+            'tipo': self.tipo,
+            'conquistas': self.conquistas,
+            'numero_conquistas': self.numero_conquistas
         }
 
     @classmethod
@@ -55,6 +59,8 @@ class Pessoa:
         player = cls(data['name'])
         player.money = data['money']
         player.pokemons = [Pokemon.from_dict(p) for p in data['pokemons']]
+        player.conquistas = data.get('conquistas', [])
+        player.numero_conquistas = data.get('numero_conquistas', len(player.conquistas))
         return player
 
     def mostrar_pokemons(self):
@@ -70,7 +76,13 @@ class Pessoa:
 
     def mostrar_conquistas(self):
         sleep(0.5)
-        print("/nOpção indisponível no momento :(")
+        if self.conquistas:
+            print(f'{c.yellow}\nConquistas de {self}:{c.x}')
+            for conquista in self.conquistas:
+                print(f' - {conquista}')
+            sleep(0.5)
+        else:
+            print("\nNenhuma conquista desbloqueada ainda.")
 
     def escolher_pokemon(self):
         if self.pokemons:
@@ -129,15 +141,24 @@ class Player(Pessoa):
     def verificar_conquistas(self):
         total = len(self.pokemons)
         conquistas = {
+            2: "test",
+            3: "test2",
+            4: "test3",
             5: "Colecionador Inicial - 5 Pokémons capturados!",
             10: "Colecionador Mediano - 10 Pokémons capturados!",
             20: "Colecionador Master - 20 Pokémons capturados!",
             30: "Colecionador Expert - 30 Pokémons capturados!",
             40: "Última conquista da classe Colecionador - 40 Pokémons capturados! - Nível Supremo atingido."
         }
+                                            
         if total in conquistas:
+            conquista_nome = conquistas[total]
             print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: {conquistas[total]}{c.x}')
-
+            self.conquistas.append(conquista_nome)
+            
+        self.numero_conquistas = len(self.conquistas)
+                
+                
     def escolher_pokemon(self):
         self.mostrar_pokemons()
         if self.pokemons:
@@ -156,6 +177,7 @@ class Player(Pessoa):
             print(f'{c.bold_red}ERRO: Esse jogador não possui nenhum Pokémon{c.x}')
 
     def explorar(self):
+        print(f'\n{c.bold_blue}=== {self} está explorando... ==={c.x}')
         if random.random() <= 0.3:
             pokemon = random.choice(POKEMONS)
             sleep(1)
@@ -172,7 +194,7 @@ class Player(Pessoa):
                     print(f'{c.red}Oh não! {pokemon} fugiu. Boa sorte na próxima...{c.x}')
             else:
                 sleep(1)
-                print('Ok, boa viagem!')
+                print('Você devia responder com apenas S ou N... Mas tudo bem, o Pokémon fugiu.')
         else:
             sleep(2)
             print(f'{c.yellow}\nEssa exploração não deu em nada...{c.x}\n')
@@ -183,7 +205,9 @@ class Player(Pessoa):
             'name': self.name,
             'money': self.money,
             'pokemons': [p.to_dict() for p in self.pokemons],
-            'tipo': self.tipo
+            'tipo': self.tipo,
+            'conquistas': self.conquistas,
+            'numero_conquistas': self.numero_conquistas
         }
 
     @classmethod
@@ -191,6 +215,8 @@ class Player(Pessoa):
         player = cls(data['name'])
         player.money = data['money']
         player.pokemons = [Pokemon.from_dict(p) for p in data['pokemons']]
+        player.conquistas = data.get('conquistas', [])
+        player.numero_conquistas = data.get('numero_conquistas', len(player.conquistas))
         return player
 
 

@@ -52,6 +52,7 @@ def iniciar_jogo():
 
     return player
 
+
 def bye():
     print(f'{c.red}\nSaindo do jogo...{c.x}')
     sleep(1)
@@ -168,7 +169,7 @@ if __name__ == "__main__":
 
 
     while True:
-        print('\nO que desejas fazer?')
+        print('\nO que desejas fazer?\n')
         print('=' * 28)
         print(textwrap.dedent(f'''
             {c.blue}0 - Sair do jogo

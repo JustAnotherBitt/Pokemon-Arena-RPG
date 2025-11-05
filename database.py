@@ -62,6 +62,7 @@ def list_saves(language: str):
                 "name": name,
                 "money": data.get("money", 0),
                 "pokemons": len(data.get("pokemons", [])),
+                "conquistas": data.get("conquistas", []),
                 "data": data
             })
         return saves

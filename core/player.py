@@ -1,7 +1,7 @@
 from time import sleep
-import colors as c
+from resources import colors as c
 import textwrap
-from pokemon import * # Importa todas as classes
+from core.pokemon import * # Importa todas as classes
 
 nameS = ['AbyssWanderer', 'ShadowReaper', 'CrypticPhantom',
          'CyberHex', 'GlitchOverlord', 'RootPhantom', '0xDeadByte',
@@ -40,6 +40,8 @@ class Pessoa:
         self.money = money
         self.conquistas = []
         self.numero_conquistas = 0
+        self.numero_batalhas_ganhas = 0  #!
+        
 
     def __str__(self):
         return self.name
@@ -51,7 +53,8 @@ class Pessoa:
             'pokemons': [p.to_dict() for p in self.pokemons],
             'tipo': self.tipo,
             'conquistas': self.conquistas,
-            'numero_conquistas': self.numero_conquistas
+            'numero_conquistas': self.numero_conquistas,
+            'numero_batalhas_ganhas': self.numero_batalhas_ganhas #!
         }
 
     @classmethod
@@ -61,6 +64,7 @@ class Pessoa:
         player.pokemons = [Pokemon.from_dict(p) for p in data['pokemons']]
         player.conquistas = data.get('conquistas', [])
         player.numero_conquistas = data.get('numero_conquistas', len(player.conquistas))
+        player.numero_batalhas_ganhas = data.get('numero_batalhas_ganhas', 0) #!
         return player
 
     def mostrar_pokemons(self):
@@ -71,7 +75,7 @@ class Pessoa:
                 print(f'{index} - {pokemon}')
             sleep(0.5)
         else:
-            print(f'{self} não possui nenhum pokemon.')
+            print(f'{self} não possui nenhum Pokémon.')
             sleep(0.5)
 
     def mostrar_conquistas(self):
@@ -119,6 +123,9 @@ class Pessoa:
                     print(textwrap.dedent(f'''
                         {c.bold_white_red} ==== {self} ganhou a batalha ==== {c.x} \n'''))
                     self.ganhar_dinheiro(pokemon_inimigo.level * 100)
+                    self.numero_batalhas_ganhas += 1  #!
+                    # print(f'{self.numero_batalhas_ganhas}') # FUNCIONOU!
+                    self.verificar_conquistas_batalhas()
                     break
 
                 if pokemon_inimigo.atacar(pokemon):
@@ -136,28 +143,47 @@ class Player(Pessoa):
     def capturar(self, pokemon):
         self.pokemons.append(pokemon)
         print(f'\n{c.green}{self} capturou {pokemon}!{c.x}\n')
-        self.verificar_conquistas()
+        self.verificar_conquistas_pokemon()
 
-    def verificar_conquistas(self):
-        total = len(self.pokemons)
-        conquistas = {
-            2: "test",
-            3: "test2",
-            4: "test3",
+    def verificar_conquistas_pokemon(self):
+        total_pokemons = len(self.pokemons)
+        conquistas_pokemons = {
             5: "Colecionador Inicial - 5 Pokémons capturados!",
             10: "Colecionador Mediano - 10 Pokémons capturados!",
             20: "Colecionador Master - 20 Pokémons capturados!",
             30: "Colecionador Expert - 30 Pokémons capturados!",
-            40: "Última conquista da classe Colecionador - 40 Pokémons capturados! - Nível Supremo atingido."
+            40: "Nível Supremo atingido - 40 Pokémons capturados!"
         }
-                                            
-        if total in conquistas:
-            conquista_nome = conquistas[total]
-            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: {conquistas[total]}{c.x}')
-            self.conquistas.append(conquista_nome)
+        
+
+        if total_pokemons in conquistas_pokemons:
+            conquista_nome = conquistas_pokemons[total_pokemons]
+            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: {conquistas_pokemons[total_pokemons]}{c.x}')
+            if conquista_nome not in self.conquistas:
+                self.conquistas.append(conquista_nome)
             
         self.numero_conquistas = len(self.conquistas)
+
                 
+    def verificar_conquistas_batalhas(self):            
+        total_batalhas = self.numero_batalhas_ganhas  
+        conquistas_batalhas = {
+            1: "Primeira Vitória - Ganhou sua primeira batalha!",
+            2: "Duelo Iniciante - Ganhou 2 batalhas!",
+            3: "Lutador em Ascensão - Ganhou 3 batalhas!",
+            5: "Veterano de Batalhas - Ganhou 5 batalhas!",
+            10: "Lendário Guerreiro - Ganhou 10 batalhas!",
+            20: "Campeão Supremo - Ganhou 20 batalhas!",
+            30: "Mestre das Batalhas - Ganhou 30 batalhas!",
+            40: "Lenda Viva - Ganhou 40 batalhas!"
+        }
+        
+        if total_batalhas in conquistas_batalhas:
+            conquista_nome = conquistas_batalhas[total_batalhas]
+            print(f'{c.bold_white_blue}🏆 Conquista desbloqueada: {conquistas_batalhas[total_batalhas]}{c.x}')
+            if conquista_nome not in self.conquistas:
+                self.conquistas.append(conquista_nome)
+        
                 
     def escolher_pokemon(self):
         self.mostrar_pokemons()
@@ -201,14 +227,8 @@ class Player(Pessoa):
             sleep(1)
 
     def to_dict(self):
-        return {
-            'name': self.name,
-            'money': self.money,
-            'pokemons': [p.to_dict() for p in self.pokemons],
-            'tipo': self.tipo,
-            'conquistas': self.conquistas,
-            'numero_conquistas': self.numero_conquistas
-        }
+        data = super().to_dict()  # ⬅ herda tudo da Pessoa
+        return data
 
     @classmethod
     def from_dict(cls, data):
@@ -217,6 +237,7 @@ class Player(Pessoa):
         player.pokemons = [Pokemon.from_dict(p) for p in data['pokemons']]
         player.conquistas = data.get('conquistas', [])
         player.numero_conquistas = data.get('numero_conquistas', len(player.conquistas))
+        player.numero_batalhas_ganhas = data.get('numero_batalhas_ganhas', 0)
         return player
 
 

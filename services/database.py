@@ -2,8 +2,9 @@ import sqlite3
 import json # For converting player object to JSON format
 from pathlib import Path # For handling file paths in a safe and OS-independent way
 
-# Define the database file path (this will create the database in the root folder of the project)
-DB_PATH = Path(__file__).parent / "game_data.db"
+# Define the database file path 
+BASE_DIR = Path(__file__).resolve().parent.parent
+DB_PATH = BASE_DIR / "database" / "game_data.db"
 
 # This function initializes the database and creates the saves table if it doesn't exist
 def init_database():
@@ -63,6 +64,7 @@ def list_saves(language: str):
                 "money": data.get("money", 0),
                 "pokemons": len(data.get("pokemons", [])),
                 "conquistas": data.get("conquistas", []),
+                "numero_batalhas_ganhas": data.get("numero_batalhas_ganhas", 0), #!
                 "data": data
             })
         return saves

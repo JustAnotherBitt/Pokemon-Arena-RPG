@@ -1,5 +1,5 @@
 import random
-import colors as c
+from resources import colors as c
 from time import sleep
 
 

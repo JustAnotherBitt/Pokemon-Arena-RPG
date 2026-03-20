@@ -56,7 +56,9 @@ python main.py
 If it doesn't work directly, use the following PowerShell command instead:
 
 ```bash
-$env:PYTHONPATH = (Get-Location).Path; python main.py
+cd I:\root\programming\Python\PokemonArena_RPG
+$env:PYTHONPATH = (Get-Location).Path
+python core/main.py
 ```
 
 To start the game on your **Linux terminal**, execute the following command: 

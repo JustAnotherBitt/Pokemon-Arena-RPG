@@ -64,7 +64,7 @@ python core/main.py
 To start the game on your **Linux terminal**, execute the following command: 
 
 ```bash
-PYTHONPATH=$(pwd) python3 main.py
+PYTHONPATH=$(pwd) python3 core/main.py
 ```
 
 ## 🧩 Feature Examples
